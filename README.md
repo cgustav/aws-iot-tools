@@ -10,7 +10,7 @@ Boilerplates and practical applications designed to streamline the development a
 
 ### Boilerplates
 
-- **[NodeMCU ESP8266 Boilerplate](./nodemcu_esp8266_boilerplate)**: A basic template for getting started with IoT application development on NodeMCU ESP8266, integrated with AWS IoT. This boilerplate includes sample code and the necessary configurations to establish a secure connection with AWS IoT and start transmitting data.
+- **[NodeMCU ESP8266 Boilerplate](./nodemcu_esp8266_boilerplate/README.md)**: A basic template for getting started with IoT application development on NodeMCU ESP8266, integrated with AWS IoT. This boilerplate includes sample code and the necessary configurations to establish a secure connection with AWS IoT and start transmitting data.
 
 ### Practical Applications
 

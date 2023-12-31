@@ -1,0 +1,13 @@
+node_modules/
+lib/
+downloads/
+arduino-ide-extension/src/node/resources
+arduino-ide-extension/Examples/
+src-gen/
+gen-webpack.config.js
+gen-webpack.node.config.js
+.DS_Store
+
+# Ignore al secrets.h files inside any folder
+**/secrets.h
+

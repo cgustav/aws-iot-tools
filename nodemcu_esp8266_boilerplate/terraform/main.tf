@@ -160,7 +160,7 @@ data "http" "root_ca" {
 # How to use: CA certificates are installed on the device and on AWS IoT. 
 # When the device connects to AWS IoT Core, AWS uses these CA certificates 
 # to validate the device's certificate.
-output "root_ca_certificate" {
+output "root_ca_cert" {
   value       = data.http.root_ca.response_body
   description = "Certificate Authority (CA) certificates are used to verify the authenticity of the device certificate."
 }
@@ -177,7 +177,7 @@ output "device_name" {
 # This certificate is used to uniquely identify each device (thing) 
 # in AWS IoT. It acts as an identity for the device, ensuring that 
 # only authorized devices can connect and communicate with AWS IoT Core.
-output "device_certificate" {
+output "device_cert" {
   value       = tls_self_signed_cert.cert.cert_pem
   description = "Used to uniquely identify each device (thing) in AWS IoT"
 }
