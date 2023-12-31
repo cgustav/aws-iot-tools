@@ -1,0 +1,10 @@
+# You can use the following configuration:
+# https://www.terraform.io/docs/backends/types/s3.html
+# https://www.terraform.io/docs/backends/types/s3.html#dynamodb-state-locking
+# https://www.terraform.io/docs/backends/types/s3.html#encrypting-the-remote-state
+
+bucket         = "terraform-iot-esp8266-bucket"
+key            = "terraform.tfstate"
+region         = "us-east-1"
+dynamodb_table = "terraform-iot-esp8266-locks"
+encrypt        = true
