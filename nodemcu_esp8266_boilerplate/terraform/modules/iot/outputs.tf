@@ -1,27 +1,34 @@
 # ------------------------------
-# IOTOUTPUTS
+# IOT OUTPUTS
 # ------------------------------
 
+# Resource ARN (Amazon Resource Name) of the thing.
 output "thing_arn" {
   value       = data.aws_arn.thing.arn
   description = "The ARN of the thing."
 }
 
+# Simple name to identify the device (thing).
 output "thing_name" {
   value       = aws_iot_thing.thing.name
   description = "The name of the thing."
 }
 
+# AWS Region of the thing.
 output "thing_region" {
   value       = data.aws_arn.thing.region
   description = "The region of the thing."
 }
 
+# AWS account ID of the thing.
 output "thing_account" {
   value       = data.aws_arn.thing.account
   description = "The account of the thing."
 }
 
+# AWS IoT endpoint: The endpoint is the URL you use to connect
+# to AWS IoT Core. You can use this endpoint to connect to AWS IoT Core
+# using MQTT, HTTP, and WebSockets protocols.
 data "aws_iot_endpoint" "iot_endpoint" {
   endpoint_type = "iot:Data-ATS"
 }
@@ -51,12 +58,6 @@ data "http" "root_ca" {
 output "root_ca_cert" {
   value       = data.http.root_ca.response_body
   description = "Certificate Authority (CA) certificates are used to verify the authenticity of the device certificate."
-}
-
-# Simple name to identify the device (thing).
-output "device_name" {
-  value       = aws_iot_thing.thing.name
-  description = "Simple name to identify the device (thing)."
 }
 
 

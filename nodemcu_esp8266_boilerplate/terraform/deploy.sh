@@ -1,5 +1,6 @@
 #!/bin/bash
 
-terraform plan -var-file=variables/main.tfvars
-terraform apply -var-file=variables/main.tfvars --auto-approve
+# Make a plan and apply it to all modules
+terraform plan -var-file=variables/main.tfvars --target=module.iot --target=module.iot_bucket_storage --out=out.tfplan
+terraform apply "out.tfplan"
 terraform output -json > outputs.json
