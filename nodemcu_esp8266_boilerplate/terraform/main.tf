@@ -42,6 +42,28 @@ module "iot_bucket_storage" {
   thing_account = module.iot.thing_account
 }
 
+module "iot_athena" {
+  source = "./modules/athena"
+
+  # Pass specific variables to module
+  s3_source_bucket_name    = var.device_storage_bucket
+  s3_source_bucket_address = module.iot.thing_name
+  columns = [
+    {
+      name = "humidity"
+      type = "double"
+    },
+    {
+      name = "temperature"
+      type = "double"
+    },
+    {
+      name = "timestamp"
+      type = "bigint"
+    }
+  ]
+}
+
 
 # ------------------------------
 # ROOT OUTPUTS

@@ -5,8 +5,6 @@
 
 resource "aws_s3_bucket" "iot_storage_bucket" {
   bucket = var.bucket_name
-
-
 }
 
 resource "aws_s3_bucket_cors_configuration" "iot_storage_bucket_cors_rule" {
@@ -90,19 +88,17 @@ resource "aws_s3_bucket_lifecycle_configuration" "iot_storage_bucket_lifecycle" 
     }
   }
 
-  rule {
-    id = "tmp_expiration"
-
-    filter {
-      prefix = "tmp/"
-    }
-
-    expiration {
-      days = abs(500)
-    }
-
-    status = "Enabled"
-  }
+  # Uncomment the following block to enable the deletion of objects
+  # rule {
+  #   id = "tmp_expiration"
+  #   filter {
+  #     prefix = "tmp/"
+  #   }
+  # expiration {
+  #   days = abs(500)
+  # }
+  # status = "Enabled"
+  # }
 }
 
 
@@ -123,7 +119,7 @@ resource "aws_iam_policy" "iot_s3_writer_policy" {
           "s3:*",
           "s3-object-lambda:*"
         ]
-        Effect = "Allow"
+        Effect   = "Allow"
         Resource = ["${aws_s3_bucket.iot_storage_bucket.arn}/*", "${aws_s3_bucket.iot_storage_bucket.arn}"]
       }
     ]
